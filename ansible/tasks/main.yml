@@ -1,0 +1,14 @@
+---
+- name: copy index file
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+  
+- name: run nginx container
+  docker_container:
+    name: nginx-hello
+    image: nginx:latest
+    volumes:
+      - /var/www/html:/usr/share/nginx/html:ro
+    ports:
+      - "80:80"

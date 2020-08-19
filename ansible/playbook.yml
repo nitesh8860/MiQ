@@ -1,0 +1,20 @@
+---
+- hosts: {{ server }}
+  become: yes
+  gather_facts: no
+  vars_files:
+    - "vars/main.yml"
+  tasks:
+    - include: 'tasks/main.yml'
+
+
+
+# look for:
+#   - callback plugin:
+#     - profile_tasks:
+#       - https://docs.ansible.com/ansible/latest/plugins/callback.html
+#   - molecule:
+#     - https://www.jeffgeerling.com/blog/2018/testing-your-ansible-roles-molecule
+#     - https://molecule.readthedocs.io/en/latest/getting-started.html
+#   - ansible-lint:
+#     - https://docs.ansible.com/ansible-lint/usage/usage.html
